@@ -1,13 +1,17 @@
 package com.github.javarushcommunity.jrtb.bot;
 
+
 import com.github.javarushcommunity.jrtb.command.CommandContainer;
 import com.github.javarushcommunity.jrtb.service.SendBotMessageServiceImpl;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+
 import static com.github.javarushcommunity.jrtb.command.CommandName.NO;
+
 
 @Component
 public class JavaRushTelegramBot extends TelegramLongPollingBot {
@@ -18,6 +22,7 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
 
     @Value("${bot.token}")
     private String token;
+
 
     private final CommandContainer commandContainer;
 
