@@ -1,0 +1,8 @@
+
+services:
+  jrtb:
+    build:
+      context: .
+    env_file:
+      - .env/jrtb.env
+    restart: always
