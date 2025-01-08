@@ -1,8 +1,23 @@
 
 services:
   jrtb:
+    depends_on:
+      - jrtb-db
     build:
       context: .
     env_file:
       - .env/jrtb.env
     restart: always
+  jrtb-db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - .env/jrtb.env
+    environment:
+      MYSQL_DATABASE: 'jrtb_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+
