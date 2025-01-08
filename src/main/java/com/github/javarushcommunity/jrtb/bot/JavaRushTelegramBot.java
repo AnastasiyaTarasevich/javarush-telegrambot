@@ -34,6 +34,7 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
 
     public JavaRushTelegramBot(TelegramUserService telegramUserService) {
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
+    }
 
 
     @Override
