@@ -7,9 +7,6 @@ import com.github.javarushcommunity.jrtb.service.Impl.SendBotMessageServiceImpl;
 
 import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 
-import com.github.javarushcommunity.jrtb.service.SendBotMessageServiceImpl;
-
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
