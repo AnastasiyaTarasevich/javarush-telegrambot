@@ -1,10 +1,12 @@
 package com.github.javarushcommunity.jrtb.command;
 
+
 import com.github.javarushcommunity.jrtb.repository.entity.TelegramUser;
 import com.github.javarushcommunity.jrtb.service.SendBotMessageService;
 import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.generics.TelegramBot;
+
 
 public class StartCommand implements Command {
 
@@ -16,10 +18,12 @@ public class StartCommand implements Command {
     public StartCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
         this.telegramUserService = telegramUserService;
+
     }
 
     @Override
     public void execute(Update update) {
+
         String chat_id=update.getMessage().getChatId().toString();
         telegramUserService.findByChatId(chat_id).ifPresentOrElse(
                 user->
@@ -35,5 +39,6 @@ public class StartCommand implements Command {
                 }
         );
         sendBotMessageService.sendMessage(chat_id, START_MESSAGE);
+
     }
 }

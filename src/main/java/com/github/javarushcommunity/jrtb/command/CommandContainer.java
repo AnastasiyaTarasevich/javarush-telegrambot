@@ -1,9 +1,13 @@
 package com.github.javarushcommunity.jrtb.command;
 
 import com.github.javarushcommunity.jrtb.service.SendBotMessageService;
+
 import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 import com.google.common.collect.ImmutableMap;
 import org.telegram.telegrambots.meta.generics.TelegramBot;
+
+import com.google.common.collect.ImmutableMap;
+
 
 import static com.github.javarushcommunity.jrtb.command.CommandName.*;
 
@@ -18,6 +22,7 @@ public class CommandContainer {
                 .put(HELP.getCommandName(), new HelpCommand(sendBotMessageService))
                 .put(NO.getCommandName(), new NoCommand(sendBotMessageService))
                 .put(STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))
+
                 .build();
 
         unknownCommand = new UnknownCommand(sendBotMessageService);
