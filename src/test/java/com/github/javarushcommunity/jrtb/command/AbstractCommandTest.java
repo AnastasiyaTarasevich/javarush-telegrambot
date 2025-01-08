@@ -2,7 +2,8 @@ package com.github.javarushcommunity.jrtb.command;
 
 import com.github.javarushcommunity.jrtb.bot.JavaRushTelegramBot;
 import com.github.javarushcommunity.jrtb.service.SendBotMessageService;
-import com.github.javarushcommunity.jrtb.service.SendBotMessageServiceImpl;
+import com.github.javarushcommunity.jrtb.service.Impl.SendBotMessageServiceImpl;
+import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -14,6 +15,7 @@ public abstract class AbstractCommandTest {
 
     protected JavaRushTelegramBot bot= Mockito.mock(JavaRushTelegramBot.class);
     protected SendBotMessageService sendBotMessageService= new SendBotMessageServiceImpl(bot);
+    protected TelegramUserService telegramUserService=Mockito.mock(TelegramUserService.class);
 
     abstract String getCommandName();
     abstract String getCommandMessage();

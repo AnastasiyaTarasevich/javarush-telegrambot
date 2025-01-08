@@ -1,10 +1,10 @@
-package com.github.javarushcommunity.jrtb.service;
+package com.github.javarushcommunity.jrtb.service.Impl;
 
 import com.github.javarushcommunity.jrtb.bot.JavaRushTelegramBot;
+import com.github.javarushcommunity.jrtb.service.SendBotMessageService;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import org.telegram.telegrambots.meta.generics.TelegramBot;
 
 @Service
 public class SendBotMessageServiceImpl implements SendBotMessageService {
