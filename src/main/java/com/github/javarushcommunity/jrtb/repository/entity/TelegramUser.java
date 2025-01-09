@@ -2,10 +2,8 @@ package com.github.javarushcommunity.jrtb.repository.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,6 +14,9 @@ public class TelegramUser {
     private String chatId;
 
     private boolean active;
+
+    @ManyToMany(mappedBy = "users", fetch=FetchType.EAGER)
+    private List<GroupSub> groupSubs;
 
 
 }
