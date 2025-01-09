@@ -7,7 +7,6 @@ import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.generics.TelegramBot;
 
-
 public class StartCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
