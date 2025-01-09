@@ -1,7 +1,6 @@
 package com.github.javarushcommunity.jrtb.repository;
 
 
-
 import com.github.javarushcommunity.jrtb.repository.entity.GroupSub;
 
 import com.github.javarushcommunity.jrtb.repository.entity.TelegramUser;

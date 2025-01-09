@@ -8,8 +8,8 @@ public enum CommandName {
 
     NO(""),
     STAT("/stat"),
-    ADD_GROUP_SUB("/addgroupsub");
-
+    ADD_GROUP_SUB("/addgroupsub"),
+    LIST_GROUP_SUB("/listgroupsub");
     private final String commandName;
 
     CommandName(String commandName) {
