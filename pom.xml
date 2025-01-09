@@ -10,7 +10,9 @@
 	</parent>
 	<groupId>com.github.javarushcommunity</groupId>
 	<artifactId>javarush-telegrambot</artifactId>
+
 	<version>0.4.0-SNAPSHOT</version>
+
 	<name>Javarush TelegramBot</name>
 	<description>Telgeram bot for Javarush from community to community</description>
 	<url/>
@@ -66,7 +68,27 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+
 		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>7.15.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>

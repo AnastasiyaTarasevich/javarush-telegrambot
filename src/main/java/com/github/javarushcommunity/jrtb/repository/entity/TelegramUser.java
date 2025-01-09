@@ -2,6 +2,7 @@ package com.github.javarushcommunity.jrtb.repository.entity;
 
 import lombok.Data;
 
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class TelegramUser {
 
     @ManyToMany(mappedBy = "users", fetch=FetchType.EAGER)
     private List<GroupSub> groupSubs;
+
 
 
 }
