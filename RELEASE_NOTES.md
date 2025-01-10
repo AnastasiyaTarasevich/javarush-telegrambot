@@ -1,6 +1,10 @@
 # Release Notes
 
 
+## 0.6.0-SNAPSHOT
+
+* JRTB-7: added the ability to delete group subscription
+
 
 ## 0.5.0-SNAPSHOT
 
@@ -20,6 +24,7 @@
 ## 0.1.0-SNAPSHOT
 * JRTB-2: added stub telegram bot
 * JRTB-0: added SpringBoot skeleton project
+
 
 
 

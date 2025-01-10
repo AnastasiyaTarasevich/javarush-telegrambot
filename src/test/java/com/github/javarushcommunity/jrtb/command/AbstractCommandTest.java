@@ -48,4 +48,14 @@ public abstract class AbstractCommandTest {
         Mockito.verify(bot).execute(sendMessage);
     }
 
+    public static Update prepareUpdate(Long chatId, String commandName) {
+        Update update = new Update();
+        Message message = Mockito.mock(Message.class);
+        Mockito.when(message.getChatId()).thenReturn(chatId);
+        Mockito.when(message.getText()).thenReturn(commandName);
+        update.setMessage(message);
+        return update;
+    }
+
+
 }

@@ -46,4 +46,16 @@ public class GroupSubServiceImpl implements GroupSubService {
         }
         return groupSubRepository.save(groupSub);
     }
+
+
+    @Override
+    public Optional<GroupSub> findById(String chatId) {
+        return groupSubRepository.findById(Integer.valueOf(chatId));
+    }
+
+    @Override
+    public GroupSub save(GroupSub groupsub) {
+        return groupSubRepository.save(groupsub);
+    }
+
 }
