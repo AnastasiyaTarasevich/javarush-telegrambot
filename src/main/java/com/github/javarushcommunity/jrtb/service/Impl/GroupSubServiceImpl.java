@@ -47,6 +47,7 @@ public class GroupSubServiceImpl implements GroupSubService {
         return groupSubRepository.save(groupSub);
     }
 
+
     @Override
     public Optional<GroupSub> findById(String chatId) {
         return groupSubRepository.findById(Integer.valueOf(chatId));
@@ -56,4 +57,5 @@ public class GroupSubServiceImpl implements GroupSubService {
     public GroupSub save(GroupSub groupsub) {
         return groupSubRepository.save(groupsub);
     }
+
 }

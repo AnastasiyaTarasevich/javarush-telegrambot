@@ -2,6 +2,7 @@ package com.github.javarushcommunity.jrtb.repository;
 
 
 import com.github.javarushcommunity.jrtb.repository.entity.GroupSub;
+
 import com.github.javarushcommunity.jrtb.repository.entity.TelegramUser;
 import lombok.Data;
 import org.junit.jupiter.api.Assertions;
@@ -43,6 +44,7 @@ public class TelegramUserRepositoryIT {
         Assertions.assertEquals(telegramUser, saved.get());
     }
 
+
     @Sql(scripts = {"/sql/clearDbs.sql", "/sql/fiveGroupSubsForUser.sql"})
     @Test
     public void shouldProperlyGetAllGroupSubsForUser() {
@@ -57,4 +59,5 @@ public class TelegramUserRepositoryIT {
             Assertions.assertEquals(i + 1, groupSubs.get(i).getLastArticleId());
         }
     }
+
 }
