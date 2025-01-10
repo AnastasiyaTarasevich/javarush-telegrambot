@@ -17,6 +17,7 @@ public class CommandContainer {
 
     public CommandContainer(SendBotMessageService sendBotMessageService,
                             TelegramUserService telegramUserService,
+                            JavaRushGroupClient javaRushGroupClient, GroupSubService groupSubService) {
 
         commandMap = ImmutableMap.<String,Command>builder()
                 .put(START.getCommandName(), new StartCommand(sendBotMessageService,telegramUserService))
