@@ -1,5 +1,7 @@
 package com.github.javarushcommunity.jrtb.javarushclient.dto;
 
+import com.github.javarushcommunity.jrtb.javarushclient.dto.enums.GroupInfoType;
+import com.github.javarushcommunity.jrtb.javarushclient.dto.enums.GroupVisibilityStatus;
 import lombok.Data;
 import lombok.ToString;
 

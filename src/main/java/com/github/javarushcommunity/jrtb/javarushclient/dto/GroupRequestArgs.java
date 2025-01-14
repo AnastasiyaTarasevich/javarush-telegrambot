@@ -1,5 +1,7 @@
 package com.github.javarushcommunity.jrtb.javarushclient.dto;
 
+import com.github.javarushcommunity.jrtb.javarushclient.dto.enums.GroupFilter;
+import com.github.javarushcommunity.jrtb.javarushclient.dto.enums.GroupInfoType;
 import lombok.Builder;
 import lombok.Getter;
 
