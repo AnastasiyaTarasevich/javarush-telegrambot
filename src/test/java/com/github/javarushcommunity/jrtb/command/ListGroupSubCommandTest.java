@@ -29,7 +29,7 @@ public class ListGroupSubCommandTest {
     {
         TelegramUser user = new TelegramUser();
         user.setActive(true);
-        user.setChatId("1");
+        user.setChatId(1L);
 
         List<GroupSub> groups = new ArrayList<>();
         groups.add(populateGroupSub(1,"g1"));

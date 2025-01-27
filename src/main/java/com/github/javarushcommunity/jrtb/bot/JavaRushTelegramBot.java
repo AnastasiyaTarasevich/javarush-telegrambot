@@ -7,11 +7,14 @@ import com.github.javarushcommunity.jrtb.javarushclient.JavaRushGroupClient;
 import com.github.javarushcommunity.jrtb.service.GroupSubService;
 import com.github.javarushcommunity.jrtb.service.Impl.SendBotMessageServiceImpl;
 
+import com.github.javarushcommunity.jrtb.service.StatisticsService;
 import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
+
+import java.util.List;
 
 import static com.github.javarushcommunity.jrtb.command.CommandName.NO;
 
@@ -30,10 +33,10 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
     private final CommandContainer commandContainer;
 
 
-    public JavaRushTelegramBot(TelegramUserService telegramUserService,  JavaRushGroupClient javaRushGroupClient,
-                               GroupSubService groupSubService) {
+    public JavaRushTelegramBot(TelegramUserService telegramUserService, JavaRushGroupClient javaRushGroupClient,
+                               GroupSubService groupSubService, @Value("#{'${bot.admins}'.split(',')}") List<String> admins, StatisticsService statisticsService){
         this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this),
-                telegramUserService,javaRushGroupClient,groupSubService);
+                telegramUserService,javaRushGroupClient,groupSubService,admins,statisticsService);
     }
 
     @Override
@@ -42,12 +45,13 @@ public class JavaRushTelegramBot extends TelegramLongPollingBot {
 
         if(update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
+            String username = update.getMessage().getFrom().getUserName();
             if(message.startsWith(COMMAND_PREFIX)) {
                 String commandIdentifier=message.split(" ")[0].toLowerCase();
 
-                commandContainer.retrieveCommand(commandIdentifier).execute(update);
+                commandContainer.findCommand(commandIdentifier, username).execute(update);
             }else {
-                commandContainer.retrieveCommand(NO.getCommandName()).execute(update);
+                commandContainer.findCommand(NO.getCommandName(), username).execute(update);
             }
 
         }

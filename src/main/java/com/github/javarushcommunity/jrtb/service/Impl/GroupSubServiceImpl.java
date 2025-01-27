@@ -7,7 +7,6 @@ import com.github.javarushcommunity.jrtb.repository.entity.GroupSub;
 import com.github.javarushcommunity.jrtb.repository.entity.TelegramUser;
 import com.github.javarushcommunity.jrtb.service.GroupSubService;
 import com.github.javarushcommunity.jrtb.service.TelegramUserService;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.NotFoundException;
@@ -29,7 +28,7 @@ public class GroupSubServiceImpl implements GroupSubService {
     }
 
     @Override
-    public GroupSub save(String chatId, GroupDiscussionInfo discussionInfo) {
+    public GroupSub save(Long chatId, GroupDiscussionInfo discussionInfo) {
         TelegramUser telegramUser = telegramUserService.findByChatId(chatId).orElseThrow(NotFoundException::new);
         //TODO add exception handling
         GroupSub groupSub;
@@ -37,7 +36,7 @@ public class GroupSubServiceImpl implements GroupSubService {
         if (groupSubFromDB.isPresent()) {
             groupSub = groupSubFromDB.get();
             Optional<TelegramUser> first=groupSub.getUsers().stream().filter(it->it.getChatId()
-                    .equalsIgnoreCase(chatId))
+                    .equals(chatId))
                     .findFirst();
             if(first.isEmpty()) {
                 groupSub.addUser(telegramUser);
@@ -45,7 +44,7 @@ public class GroupSubServiceImpl implements GroupSubService {
         }else {
             groupSub = new GroupSub();
             groupSub.addUser(telegramUser);
-            groupSub.setLastArticleId(javaRushGroupClient.findLastPostId(discussionInfo.getId()));
+            groupSub.setLastPostId(javaRushGroupClient.findLastPostId(discussionInfo.getId()));
             groupSub.setId(discussionInfo.getId());
             groupSub.setTitle(discussionInfo.getTitle());
 
