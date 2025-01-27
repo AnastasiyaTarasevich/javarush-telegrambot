@@ -23,15 +23,15 @@ public class SendBotMessageServiceTest {
 
     @Test
     public void shouldProperlySendMessage() throws TelegramApiException {
-        String chatId = "test_chat_id";
+        Long chatId = 123L;
         String message="test_message";
 
         SendMessage sendMessage=new SendMessage();
-        sendMessage.setChatId(chatId);
+        sendMessage.setChatId(String.valueOf(chatId));
         sendMessage.setText(message);
         sendMessage.enableHtml(true);
 
-        sendBotMessageService.sendMessage(chatId, message);
+        sendBotMessageService.sendMessage(Long.valueOf(chatId), message);
         Mockito.verify(javaRushTelegramBot).execute(sendMessage);
     }
 }

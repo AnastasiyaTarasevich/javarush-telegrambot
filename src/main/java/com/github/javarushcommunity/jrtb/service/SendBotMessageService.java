@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface SendBotMessageService {
 
-    void sendMessage(String chatId, String text);
+    void sendMessage(Long chatId, String text);
 
-    void sendMessage(String chatId, List<String> message);
+    void sendMessage(Long chatId, List<String> message);
 }

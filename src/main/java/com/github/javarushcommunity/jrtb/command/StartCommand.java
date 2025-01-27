@@ -6,6 +6,7 @@ import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.generics.TelegramBot;
 
+
 public class StartCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
@@ -22,7 +23,7 @@ public class StartCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        String chat_id=update.getMessage().getChatId().toString();
+        Long chat_id=update.getMessage().getChatId();
         telegramUserService.findByChatId(chat_id).ifPresentOrElse(
                 user->
                 {
